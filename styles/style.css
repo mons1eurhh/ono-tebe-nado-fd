@@ -1,11 +1,13 @@
 .header {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
-  grid-template-rows: 293px;
+  grid-template-rows: 1fr;
   align-items: center;
   padding: 0 50px 0;
   font-size: 18px;
 }
+
+/* исправлена высота строк для грида*/
 
 .header_menu {
   display: flex;
@@ -28,7 +30,7 @@
   text-decoration-line: none;
 }
 
-.header__links-list-item_no-marker {
+.header__link_active {
   list-style-type: none;
   text-decoration-line: none;
 }
@@ -64,7 +66,7 @@
 
 .cover {
   position: relative;
-  height: 757px;
+  min-height: 757px;
   background-image: url(../images/cover.jpg);
   background-size: cover;
   background-position: center;
@@ -74,12 +76,16 @@
   font-weight: 400;
 }
 
+/* поменял жесткое ограничение высоты на минимально-допустимое*/
+
 .overlay {
   position: absolute;
-  background-image: url(../images/overlay.png);
-  opacity: 0.7;
+  background-color: black;
+  opacity: 0.6;
   inset: 0;
 }
+
+/*переделал оверлей через беграунд, а не через изображение*/
 
 .cover_title {
   font-size: 100px;
@@ -126,8 +132,10 @@
   color: #ffffff;
   width: 256px;
   height: 51px;
-  border: 1px solid #ffffff;
+  border: 1px solid currentColor;
 }
+
+/*кнопке присвоен цвет, наследуемый у текста элемента*/
 
 .lots {
   margin: 180px 24px 0;
@@ -157,6 +165,10 @@
   min-height: 596px;
 }
 
+.card-link {
+  text-decoration: none;
+}
+
 .card {
   height: 100%;
   color: #ffffff;
@@ -174,6 +186,7 @@
   font-weight: 700;
   text-transform: uppercase;
   z-index: 1;
+  text-decoration: underline solid 1px;
   text-underline-offset: 3px;
 }
 
@@ -184,15 +197,15 @@
 }
 
 .card_type_film {
-  background-image: url(/images/card-lot-01.jpg);
+  background-image: url(../images/card-lot-01.jpg);
 }
 
 .card_type_book {
-  background-image: url(/images/card-lot-02.jpg);
+  background-image: url(../images/card-lot-02.jpg);
 }
 
 .card_type_picture {
-  background-image: url(/images/card-lot-03.jpg);
+  background-image: url(../images/card-lot-03.jpg);
 }
 
 .lots_link-about {
@@ -208,7 +221,7 @@
   margin: 120px 24px 180px;
   display: grid;
   grid-template-columns: 334px 1fr;
-  grid-template-rows: 595px;
+  grid-template-rows: 1fr;
 }
 
 .about_logo {
@@ -252,19 +265,23 @@
 }
 
 .footer {
-  height: 180px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 180px;
+  grid-template-rows: 1fr;
 }
+
+/*убрана жесткая высота футера и переделана на адаптивную*/
 
 .footer_address {
   padding-left: 50px;
+  padding-bottom: 82px;
 }
 
 .footer_menu {
   display: flex;
   place-content: center;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .footer__menu-link_active {
